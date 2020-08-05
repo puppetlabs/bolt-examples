@@ -1,0 +1,22 @@
+---
+parameters:
+  targets:
+    type: TargetSpec
+    description: "The RHEL targets to remove Apache on"
+
+steps:
+  - task: service
+    target: $targets
+    description: "Shut down apache service"
+    parameters:
+      name: httpd
+      action: stop
+  - command: "cp /etc/httpd/logs/access_log /tmp/apache_access"
+    target: $targets
+    description: "Copy Apache access log"
+  - task: package
+    target: $targets
+    description: "Remove Apache"
+    parameters:
+      action: uninstall
+      name: httpd

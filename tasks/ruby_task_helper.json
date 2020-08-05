@@ -1,0 +1,11 @@
+{
+  "description": "An example task that uses the Ruby helper library",
+  "input_method": "stdin",
+  "parameters": {
+    "name": {
+      "description": "Name of user you would like to greet.",
+      "type": "String"
+    }
+  },
+  "files": ["ruby_task_helper/files/task_helper.rb"]
+}
